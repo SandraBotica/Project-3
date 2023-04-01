@@ -3,7 +3,7 @@ Topic
 
 Global coffee trade.
 Which countries produce, export, import coffee and in what volume?
-A comparison of the domestic coffee consumption around the Globe?
+A comparison of the domestic coffee consumption around the Globe.
 
 https://www.ico.org/new_historical.asp
 
