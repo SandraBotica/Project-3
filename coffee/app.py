@@ -16,17 +16,17 @@ from flask import Flask, jsonify
 # Database Setup
 #################################################
 engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee_db')
-conn = engine.connect()
+# conn = engine.connect()
 
-data = pd.read_sql("SELECT * FROM coffee_data", conn)
+# data = pd.read_sql("SELECT * FROM coffee_data", conn)
 
 # reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(autoload_with=engine)
+Base = automap_base()
+# reflect the tables
+Base.prepare(autoload_with=engine)
 
-# # Save reference to the table
-# Coffee = Base.classes.coffee
+# Save reference to the table
+Coffee = Base.classes.coffee
 
 #################################################
 # Flask Setup
@@ -56,21 +56,21 @@ def home():
 # # Converting query into a dictionary with Country as the key and exports, imports, growers price and retial price as the values
 # # Returning json representation of the dictionary
 
-# @app.route("/api/v1.0/coffee_data")
-# def coffee_data():
-#     # print("Server received request for 'coffee_data' page...")
-#     # Create a session (link) from Python to the DB
-#     session = Session(engine)
+@app.route("/api/v1.0/coffee_data")
+def coffee_data():
+    # print("Server received request for 'coffee_data' page...")
+    # Create a session (link) from Python to the DB
+    session = Session(engine)
     
-#     coffee_dataset = session.query(Coffee.country, Coffee.exports, Coffee.imports, Coffee.growers, Coffee.retails).all()
+    coffee_dataset = session.query(Coffee.Id, Coffee.Country, Coffee.Year, Coffee.Import_Volume, Coffee.Export_Volume, Coffee.Growers_Price, Coffee.Retail_Price).all()
     
-#     session.close()
+    session.close()
     
-#     coffee_data_list = []
-#     for country, exports, imports, growers, retails in coffee_dataset:
-#         coffee_data_dict = {country: [exports, imports, growers, retails]}
-#         coffee_data_list.append(coffee_data_dict)
-#     return jsonify(coffee_data_list)
+    coffee_data_list = []
+    for Id, Country, Year, Import_Volume, Export_Volume, Growers_Price, Retail_Price in coffee_dataset:
+        coffee_data_dict = {"Row": [Id, Country, Year, Import_Volume, Export_Volume, Growers_Price, Retail_Price]}
+        coffee_data_list.append(coffee_data_dict)
+    return jsonify(coffee_data_list)
 
 
 
@@ -85,13 +85,13 @@ def home():
 #     # Create a session (link) from Python to the DB
 #     session = Session(engine)
     
-#     export_dataset = session.query(Coffee.country, Coffee.exports).all()
+#     export_dataset = session.query(Coffee.Country, Coffee.Year, Coffee.Export_Volume).all()
     
 #     session.close()
     
 #     export_data_list = []
-#     for country, exports in export_dataset:
-#         export_data_dict = {country:exports}
+#     for Country, Year, Export_Volume in export_dataset:
+#         export_data_dict = {Country:[Year,Export_Volume]}
 #         export_data_list.append(export_data_dict)
 #     return jsonify(export_data_list)
 
@@ -108,13 +108,13 @@ def home():
 #     # Create a session (link) from Python to the DB
 #     session = Session(engine)
     
-#     import_dataset = session.query(Coffee.country, Coffee.imports).all()
+#     import_dataset = session.query(Coffee.Country, Coffee.Year,Coffee.Import_Volume).all()
     
 #     session.close()
     
 #     import_data_list = []
-#     for country, imports in import_dataset:
-#         import_data_dict = {country:imports}
+#     for Country, Year, Import_Volume in import_dataset:
+#         import_data_dict = {Country:[Year, Import_Volume]}
 #         import_data_list.append(import_data_dict)
 #     return jsonify(import_data_list)
 
@@ -129,13 +129,13 @@ def home():
 #     # Create a session (link) from Python to the DB
 #     session = Session(engine)
     
-#     grower_dataset = session.query(Coffee.country, Coffee.growers).all()
+#     grower_dataset = session.query(Coffee.Country, Coffee.Year, Coffee.Growers_Price).all()
     
 #     session.close()
     
 #     grower_data_list = []
-#     for country, growers in grower_dataset:
-#         grower_data_dict = {country:growers}
+#     for Country, Year, Growers_Price in grower_dataset:
+#         grower_data_dict = {Country:[Year, Growers_Price]}
 #         grower_data_list.append(grower_data_dict)
 #     return jsonify(grower_data_list)
 
@@ -151,13 +151,13 @@ def home():
 #     # Create a session (link) from Python to the DB
 #     session = Session(engine)
     
-#     retail_dataset = session.query(Coffee.country, Coffee.retails).all()
+#     retail_dataset = session.query(Coffee.Country, Coffee.Year, Coffee.Retail_Price).all()
     
 #     session.close()
     
 #     retail_data_list = []
-#     for country, retails in retail_dataset:
-#         retail_data_dict = {country:retails}
+#     for Country, Year, Retail_Price in retail_dataset:
+#         retail_data_dict = {Country:[Year, Retail_Price]}
 #         retail_data_list.append(retail_data_dict)
 #     return jsonify(retail_data_list)
 
