@@ -15,10 +15,13 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee_db')
+engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee_dataset_db')
 conn = engine.connect()
 
-data = pd.read_sql("SELECT * FROM coffee_data", conn)
+imports = pd.read_sql("SELECT * FROM imports", conn)
+exports = pd.read_sql("SELECT * FROM exports", conn)
+prices_paid_to_growers = pd.read_sql("SELECT * FROM prices_paid_to_growers", conn)
+retail_prices = pd.read_sql("SELECT * FROM retail_prices", conn)
 
 # # reflect an existing database into a new model
 # Base = automap_base()
@@ -43,11 +46,10 @@ def home():
     return (
         f"Welcome to the Coffee API!<br/>"
         f"Available Routes:<br/>"
-        f"/api/v1.0/coffee_data<br/>"
-        f"/api/v1.0/coffee_export<br/>"
-        f"/api/v1.0/coffee_import<br/>"
-        f"/api/v1.0/coffee_grower<br/>"
-        f"/api/v1.0/coffee_retail<br/>"
+        f"/api/v1.0/imports<br/>"
+        f"/api/v1.0/exports<br/>"
+        f"/api/v1.0/prices_paid_to_growers<br/>"
+        f"/api/v1.0/retail_prices<br/>"
         )
 
 
@@ -56,21 +58,21 @@ def home():
 # # Converting query into a dictionary with Country as the key and exports, imports, growers price and retial price as the values
 # # Returning json representation of the dictionary
 
-@app.route("/api/v1.0/coffee_data")
-def coffee_data():
-    # print("Server received request for 'coffee_data' page...")
-    # Create a session (link) from Python to the DB
-    session = Session(engine)
+# @app.route("/api/v1.0/coffee_data")
+# def coffee_data():
+#     # print("Server received request for 'coffee_data' page...")
+#     # Create a session (link) from Python to the DB
+#     session = Session(engine)
     
-    coffee_dataset = session.query(Coffee.Id, Coffee.Country, Coffee.Year, Coffee.Import_Volume, Coffee.Export_Volume, Coffee.Growers_Price, Coffee.Retail_Price).all()
+#     coffee_dataset = session.query(Coffee.Id, Coffee.Country, Coffee.Year, Coffee.Import_Volume, Coffee.Export_Volume, Coffee.Growers_Price, Coffee.Retail_Price).all()
     
-    session.close()
+#     session.close()
     
-    coffee_data_list = []
-    for Id, Country, Year, Import_Volume, Export_Volume, Growers_Price, Retail_Price in coffee_dataset:
-        coffee_data_dict = {"Row": [Id, Country, Year, Import_Volume, Export_Volume, Growers_Price, Retail_Price]}
-        coffee_data_list.append(coffee_data_dict)
-    return jsonify(coffee_data_list)
+#     coffee_data_list = []
+#     for Id, Country, Year, Import_Volume, Export_Volume, Growers_Price, Retail_Price in coffee_dataset:
+#         coffee_data_dict = {"Row": [Id, Country, Year, Import_Volume, Export_Volume, Growers_Price, Retail_Price]}
+#         coffee_data_list.append(coffee_data_dict)
+#     return jsonify(coffee_data_list)
 
 
 
