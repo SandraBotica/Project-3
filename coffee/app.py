@@ -16,17 +16,17 @@ from flask import Flask, jsonify
 # Database Setup
 #################################################
 engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee_db')
-# conn = engine.connect()
+conn = engine.connect()
 
-# data = pd.read_sql("SELECT * FROM coffee_data", conn)
+data = pd.read_sql("SELECT * FROM coffee_data", conn)
 
-# reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(autoload_with=engine)
+# # reflect an existing database into a new model
+# Base = automap_base()
+# # reflect the tables
+# Base.prepare(autoload_with=engine)
 
-# Save reference to the table
-Coffee = Base.classes.coffee
+# # Save reference to the table
+# Coffee = Base.classes.coffee
 
 #################################################
 # Flask Setup
