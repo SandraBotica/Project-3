@@ -15,6 +15,8 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
+# reflect an existing database coffee in postgres into a new model
+# reflect the tables
 engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee')
 conn = engine.connect()
 
