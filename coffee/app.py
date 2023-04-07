@@ -15,7 +15,7 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee_dataset_db')
+engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/coffee')
 conn = engine.connect()
 
 imports = pd.read_sql("SELECT * FROM imports", conn)
