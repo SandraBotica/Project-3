@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prices Paid to Growers Data Visualization</title>
+    <title>Prices Paid to Growers Data Visualisation</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>Prices Paid to Growers Data Visualization</h1>
+    <h1>Prices Paid to Growers Data Visualisation</h1>
     <select id="countrySelect">
         <!-- Dropdown options will be added using JavaScript -->
     </select>
@@ -18,12 +18,12 @@
             .then(response => response.json())
             .then(data => {
                 // Get the country names from the 'prices_paid_to_growers' table
-                const countries = data.map(row => row.Country);
+                let countries = data.map(row => row.Country);
 
                 // Populate the dropdown with the country names
-                const countrySelect = document.getElementById('countrySelect');
+                let countrySelect = document.getElementById('countrySelect');
                 countries.forEach(country => {
-                    const option = document.createElement('option');
+                    let option = document.createElement('option');
                     option.value = country;
                     option.text = country;
                     countrySelect.add(option);
@@ -31,19 +31,19 @@
 
                 // Function to create the line plot for the selected country
                 function createLinePlot(country) {
-                    const growersData = data.find(row => row.Country === country);
+                    let growersData = data.find(row => row.Country === country);
 
                     // Filter out 'Id' and 'Country' keys and convert the remaining keys to numbers
-                    const years = Object.keys(growersData).filter(key => key !== 'Id' && key !== 'Country' && !isNaN(Number(key))).map(Number);
+                    let years = Object.keys(growersData).filter(key => key !== 'Id' && key !== 'Country' && !isNaN(Number(key))).map(Number);
 
                     // Extract the data for the selected country
-                    const growersValues = years.map(year => growersData[year]);
+                    let growersValues = years.map(year => growersData[year]);
 
                     // Create the line plot using Plotly
-                    const traceGrowers = { x: years, y: growersValues, mode: 'lines', name: 'Prices Paid to Growers' };
-                    const plotData = [traceGrowers];
+                    let traceGrowers = { x: years, y: growersValues, mode: 'lines', name: 'Prices Paid to Growers' };
+                    let plotData = [traceGrowers];
 
-                    const layout = {
+                    let layout = {
                         title: `Prices Paid to Growers for ${country}`,
                         xaxis: { title: 'Year' },
                         yaxis: { title: 'US cents/lb' }

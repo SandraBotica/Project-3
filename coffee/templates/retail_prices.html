@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Retail Prices Data Visualization</title>
+    <title>Retail Prices Data Visualisation</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>Retail Prices Data Visualization</h1>
+    <h1>Retail Prices Data Visualisation</h1>
     <select id="countrySelect">
         <!-- Dropdown options will be added using JavaScript -->
     </select>
@@ -18,12 +18,12 @@
             .then(response => response.json())
             .then(data => {
                 // Get the country names from the 'retail_prices' table
-                const countries = data.map(row => row.Country);
+                let countries = data.map(row => row.Country);
 
                 // Populate the dropdown with the country names
-                const countrySelect = document.getElementById('countrySelect');
+                let countrySelect = document.getElementById('countrySelect');
                 countries.forEach(country => {
-                    const option = document.createElement('option');
+                    let option = document.createElement('option');
                     option.value = country;
                     option.text = country;
                     countrySelect.add(option);
@@ -31,22 +31,22 @@
 
                 // Function to create the line plot for the selected country
                 function createLinePlot(country) {
-                    const retailData = data.find(row => row.Country === country);
+                    let retailData = data.find(row => row.Country === country);
 
                     // Filter out 'Id' and 'Country' keys and convert the remaining keys to numbers
-                    const years = Object.keys(retailData).filter(key => key !== 'Id' && key !== 'Country' && !isNaN(Number(key))).map(Number);
+                    let years = Object.keys(retailData).filter(key => key !== 'Id' && key !== 'Country' && !isNaN(Number(key))).map(Number);
 
                     // Extract the data for the selected country
-                    const retailValues = years.map(year => retailData[year]);
+                    let retailValues = years.map(year => retailData[year]);
 
                     // Create the line plot using Plotly
-                    const traceRetail = { x: years, y: retailValues, mode: 'lines', name: 'Retail Prices' };
-                    const plotData = [traceRetail];
+                    let traceRetail = { x: years, y: retailValues, mode: 'lines', name: 'Retail Prices' };
+                    let plotData = [traceRetail];
 
-                    const layout = {
+                    let layout = {
                         title: `Retail Prices for ${country}`,
                         xaxis: { title: 'Year' },
-                        yaxis: { title: 'US cents/lb' }
+                        yaxis: { title: 'US $/lb' }
                     };
 
                     Plotly.newPlot('linePlot', plotData, layout);

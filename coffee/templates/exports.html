@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coffee Exports Data Visualization</title>
+    <title>Coffee Exports Data Visualisation</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>Coffee Exports Data Visualization</h1>
+    <h1>Coffee Exports Data Visualisation</h1>
     <select id="countrySelect">
         <!-- Dropdown options will be added using JavaScript -->
     </select>
@@ -18,12 +18,12 @@
             .then(response => response.json())
             .then(data => {
                 // Get the country names from the 'exports' table
-                const countries = data.map(row => row.Country);
+                let countries = data.map(row => row.Country);
 
                 // Populate the dropdown with the country names
-                const countrySelect = document.getElementById('countrySelect');
+                let countrySelect = document.getElementById('countrySelect');
                 countries.forEach(country => {
-                    const option = document.createElement('option');
+                    let option = document.createElement('option');
                     option.value = country;
                     option.text = country;
                     countrySelect.add(option);
@@ -31,19 +31,19 @@
 
                 // Function to create the line plot for the selected country
                 function createLinePlot(country) {
-                    const exportsData = data.find(row => row.Country === country);
+                    let exportsData = data.find(row => row.Country === country);
 
                     // Filter out 'Id' and 'Country' keys and convert the remaining keys to numbers
-                    const years = Object.keys(exportsData).filter(key => key !== 'Id' && key !== 'Country' && !isNaN(Number(key))).map(Number);
+                    let years = Object.keys(exportsData).filter(key => key !== 'Id' && key !== 'Country' && !isNaN(Number(key))).map(Number);
 
                     // Extract the data for the selected country
-                    const exportsValues = years.map(year => exportsData[year]);
+                    let exportsValues = years.map(year => exportsData[year]);
 
                     // Create the line plot using Plotly
-                    const traceExports = { x: years, y: exportsValues, mode: 'lines', name: 'Exports' };
-                    const plotData = [traceExports];
+                    let traceExports = { x: years, y: exportsValues, mode: 'lines', name: 'Exports' };
+                    let plotData = [traceExports];
 
-                    const layout = {
+                    let layout = {
                         title: `Coffee Exports for ${country}`,
                         xaxis: { title: 'Year' },
                         yaxis: { title: 'Thousand 60kg bags' }
