@@ -9,6 +9,8 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{{ url_for('static',filename='total_imports_exports.js') }}"></script>
     <script src="{{ url_for('static',filename='total_exports_growers.js') }}"></script>
+    <script src="{{ url_for('static',filename='top_5_import.js') }}"></script>
+    <script src="{{ url_for('static',filename='top_5_export.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">     
 </head>
 <body>
@@ -19,6 +21,8 @@
     <br>You can also access visualisations for each table through the provided links.</p>
     <div id="exports_imports"></div>
     <div id="export_growers"></div>
+    <div id="top_5_import"></div>
+    <div id="top_5_export"></div>
     <h2 class="custom-fonts">Available Data API Endpoints:</h2>
     <ul class="ul-tag">
         <li class="li-tag">
@@ -30,6 +34,8 @@
             <li><a href="/api/v1.0/data/total_exports">/api/v1.0/data/total_exports</a> - Overall exports data</li>
             <li><a href="/api/v1.0/data/total_retail">/api/v1.0/data/total_retail</a> - Overall retail data</li>
             <li><a href="/api/v1.0/data/total_growers">/api/v1.0/data/total_growers</a> - Overall prices paid to growers data</li>
+            <li><a href="/api/v1.0/data/top_5_import">/api/v1.0/data/top_5_import</a> - Top 5 Import by Country</li>
+            <li><a href="/api/v1.0/data/top_5_export">/api/v1.0/data/top_5_export</a> - Top 5 Export by Country</li>
         </li>        
     </ul>
 
