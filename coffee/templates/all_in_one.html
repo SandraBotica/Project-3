@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="{{ url_for('static',filename='imports.js') }}"></script>
+    <script src="{{ url_for('static',filename='exports.js') }}"></script>
+    <script src="{{ url_for('static',filename='retail_prices.js') }}"></script>
+    <script src="{{ url_for('static',filename='prices_paid_to_growers.js') }}"></script>    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+    <h1 class="custom-fonts">Overall Summary</h3>
+    <div class="plot-container">
+        <select id="countrySelectImports">
+            <!-- Dropdown options will be added using JavaScript -->
+        </select>
+        <div id="importsPlot"></div>
+        <select id="countrySelectExports">
+            <!-- Dropdown options will be added using JavaScript -->
+        </select>
+        <div id="exportsPlot"></div>
+        <select id="countrySelectRetail">
+            <!-- Dropdown options will be added using JavaScript -->
+        </select>
+        <div id="retailPlot"></div>
+        <select id="countrySelectGrowers">
+            <!-- Dropdown options will be added using JavaScript -->
+        </select>
+        <div id="growersPlot"></div>
+    </div>
+</body>
+</html>
