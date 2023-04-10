@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Coffee Data API</title>
-    <!-- <img src="/images/nathan-dumlao-Y3AqmbmtLQI-unsplash.jpg">
-    <p>Photo by <a href="https://unsplash.com/@nate_dumlao?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nathan Dumlao</a> on <a href="https://unsplash.com/photos/zUNs99PGDg0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
     </a></p>    
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="{{ url_for('static',filename='imports.js') }}"></script>
+    <script src="{{ url_for('static',filename='exports.js') }}"></script>
+    <script src="{{ url_for('static',filename='retail_prices.js') }}"></script>
+    <script src="{{ url_for('static',filename='prices_paid_to_growers.js') }}"></script>  
     <script src="{{ url_for('static',filename='total_imports_exports.js') }}"></script>
     <script src="{{ url_for('static',filename='total_exports_growers.js') }}"></script>
     <script src="{{ url_for('static',filename='top_5_import_export.js') }}"></script>
