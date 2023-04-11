@@ -89,5 +89,5 @@ https://www.ico.org/new_historical.asp
 
 ## Contact
  - Feel free to contact Cindy or Sandra with any questions.
- - Cindy Wong cwsyni88@gmail.com
+ - Cindy Wong cwsynyi88@gmail.com
  - Sandra Botica    smbotica@gmail.com
