@@ -32,10 +32,6 @@ https://www.ico.org/new_historical.asp
  - Folder **original_resources** The 4 original excel files 
  - Folder **cleaned_resources** 4 files cleaned for the purpose of this project.
 
-## API reference 
-
-http://127.0.0.1:5000
-
 ## Technologies used
 
  - Excel
@@ -68,24 +64,30 @@ http://127.0.0.1:5000
 
     Welcome to our **Coffee Data API**
 
- - You will find the list of **Available Data API Endpoints** that populate our visualisations.
- - You will find a list of 4 **Data Visualisations**.
- _ You will also find a list of 3 **Data Comparison**. plots 
+      You will find the list of **Available Data API Endpoints** that populate our visualisations.
+
+      You will find a list of 4 **Data Visualisations**.
+
+      You will also find a list of 3 **Data Comparison** plots. 
 
  3. In the <coffee> folder you will find:
 
- - An image of our database creation from QuickDBD.
-    <ERD_image_coffee_database.png>
- - The exported SQL from Quick DBD used in pgAdmin.
-    <coffee_dataset.sql>
- - **static** folder with JavaScript files.
- - Inside **static** another folder called **styles** with the CSS file.
- - **templates** folder with HTML files.
+      An image of our database creation from QuickDBD.
+      <ERD_image_coffee_database.png>
+
+      The exported SQL from Quick DBD used in pgAdmin.
+      <coffee_dataset.sql>
+
+      **static** folder with JavaScript files.
+
+      Inside **static** another folder called **styles** with the CSS file.
+
+      **templates** folder with HTML files.
 
  4. The **data_exploration** folder includes files used when planning and exploring this dataset and story. Take for example original app.py and accessing the database using PyMongo.
 
 
 ## Contact
  - Feel free to contact Cindy or Sandra with any questions.
- - Cindy Wong 
+ - Cindy Wong cwsyni88@gmail.com
  - Sandra Botica    smbotica@gmail.com
