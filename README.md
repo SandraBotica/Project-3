@@ -8,7 +8,7 @@
 
 You are very welcome to have a look at our presentation slide deck for deeper insight into our story on Global Coffee Trade.
 
-**Project3SlideDeck_CW.pptx**
+**Project3SlideDeck_CW_v2.pptx**
 
 ## Contributing Members 
 
@@ -85,6 +85,8 @@ https://www.ico.org/new_historical.asp
       **templates** folder with HTML files.
 
  4. The **data_exploration** folder includes files used when planning and exploring this dataset and story. Take for example original app.py and accessing the database using PyMongo.
+
+ 5. A report/writeup of this project can be found in the file <writeup.md>
 
 
 ## Contact
