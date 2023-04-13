@@ -27,6 +27,7 @@ https://www.ico.org/new_historical.asp
  - Price Data - Retail Prices - Annual Averages (excel), US dollars/lb.
 
 **Our purpose was to gain insight into the Countries and volume of imports and exports from 1990-2019.**
+
 **We were also interested in comparing prices paid to growers and retail prices.**
 
 ## Below are the questions we explored and key findings for each.
@@ -41,7 +42,7 @@ https://www.ico.org/new_historical.asp
 
 * The impact of climatic events was also displayed in the data e.g. Brazil's exports reduced after 2014 high temperatures and drought.
 
-### 2.The number of countries buying/importing coffee and at what volume?
+### 2. The number of countries buying/importing coffee and at what volume?
 
 * Top 5 coffee importers are USA, Germany, Italy, Japan & France. Each of these countries had a steady rise in imports, except for Japan who have experienced declining imports after 1997.
 
@@ -81,4 +82,4 @@ https://www.ico.org/new_historical.asp
 
 ## This project has revealed the Global demand for coffee does not appear to have been affected by decelerating global economic growth or rising cost of living.
 
-## Might data from 2019 to present reveal a different trend?
+## Data post 2019 may reveal a different trend?
