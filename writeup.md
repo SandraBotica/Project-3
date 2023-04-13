@@ -82,4 +82,4 @@ https://www.ico.org/new_historical.asp
 
 ## This project has revealed the Global demand for coffee does not appear to have been affected by decelerating global economic growth or rising cost of living.
 
-## Data post 2019 may reveal a different trend?
+## Data post 2019 may reveal a different trend.
